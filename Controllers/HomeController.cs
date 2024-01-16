@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Projects.Models;
+using websiteAspnet.Models;
 
 namespace Projects.Controllers;
 
@@ -15,7 +16,13 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        HomeModel home = new()
+        {
+            Name = "John Doe",
+            Email = "johndoe@outlook.com"
+        };
+
+        return View(home);
     }
 
     public IActionResult Privacy()
